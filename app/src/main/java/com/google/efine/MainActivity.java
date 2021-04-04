@@ -83,14 +83,17 @@ public class MainActivity extends AppCompatActivity {
             if (it.isSuccess()) {
                 Log.v("EXAMPLE", "Successfully authenticated anonymously.");
                 user = app.currentUser();
-
                 mongoClient = user.getMongoClient("mongodb-atlas");
                 mongoDatabase = mongoClient.getDatabase("EfineDB");
                 mongoCollection = mongoDatabase.getCollection("dLicence");
+
             } else {
                 Log.e("EXAMPLE", it.getError().toString());
             }
         });
+
+
+
 
     }
 

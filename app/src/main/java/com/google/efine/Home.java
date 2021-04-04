@@ -18,6 +18,7 @@ import java.io.Serializable;
 import io.realm.Realm;
 import io.realm.mongodb.App;
 import io.realm.mongodb.AppConfiguration;
+import io.realm.mongodb.Credentials;
 import io.realm.mongodb.User;
 import io.realm.mongodb.mongo.MongoClient;
 import io.realm.mongodb.mongo.MongoCollection;
@@ -41,6 +42,7 @@ public class Home extends AppCompatActivity {
 
         SharedPreferences sharePref= PreferenceManager.getDefaultSharedPreferences(this);
         licenceNo=sharePref.getString("licence",null);
+        Log.v("SRA", "licence: " + licenceNo);
 
         na = findViewById(R.id.textView6);
 
@@ -60,11 +62,11 @@ public class Home extends AppCompatActivity {
                 String txt="Hello "+resultdata.getString("Name");
                 na.setText(txt);
                 eUser = new DrivingLicence(resultdata.getString("LicenceNo"),resultdata.getString("NIC"),resultdata.getString("Name"),resultdata.getString("Surname"),resultdata.getString("Address"),resultdata.getString("DOB"),resultdata.getString("Issued"),resultdata.getString("Expired"),resultdata.getString("BloodGroup"),resultdata.getBoolean("Spectacles"));
-                Log.v("DATA", "Name: " + eUser.getName());
+                Log.v("SRA", "Name: " + eUser.getName());
 
             } else {
                 Toast.makeText(getApplicationContext(),"Not found",Toast.LENGTH_LONG).show();
-                Log.v("Data",result.getError().toString());
+                Log.v("SRA",result.getError().toString()+"SRAAAAAAAAAA");
             }
         });
     }
