@@ -52,7 +52,7 @@ public class History extends AppCompatActivity {
         user = app.currentUser();
         mongoClient = user.getMongoClient("mongodb-atlas");
         mongoDatabase = mongoClient.getDatabase("EfineDB");
-        mongoCollection = mongoDatabase.getCollection("Report");
+        mongoCollection = mongoDatabase.getCollection("Payments");
 
         Document queryFilter  = new Document("licence", licenceNo);
         RealmResultTask<MongoCursor<Document>> findTask = mongoCollection.find(queryFilter).iterator();
@@ -76,7 +76,9 @@ public class History extends AppCompatActivity {
                     Date date =result.getDate("date");
                     SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
                     String strDate = formatter.format(date);
-                    tv.setText(" <-| "+result.getString("type")+" | "+strDate+" |->");
+                    int type= Integer.parseInt(result.getString("type"));
+                    String[] TypeArray = getResources().getStringArray(R.array.TypeArray);
+                    tv.setText(" <-| "+TypeArray[type]+" | "+strDate+" |->");
                     LL.addView(tv);
                 }
             } else {

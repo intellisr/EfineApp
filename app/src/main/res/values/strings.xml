@@ -1,3 +1,40 @@
 <resources>
     <string name="app_name">eFine</string>
+
+    <string-array name="TypeArray">
+        <item>Identification Plates</item>
+        <item>Revenue Licence to be displayed on motor vehicles and produced when required</item>
+        <item>Prohibition on the use of motor vehicles in contravention of the provisions of revenue Licence</item>
+        <item>Failure to obtain authorization to drive emergency service vehicles and public service vehicles</item>
+        <item>Driving a special purpose vehicle without obtaining a licence</item>
+        <item>Failure to obtain authorization to drive a vehicle loaded with chemicals, hazardous waste</item>
+        <item>Failure to have a License to drive a specific class of vehicles</item>
+        <item>Failure to carry a Driving Licence when driving </item>
+        <item>Not halting or parking of motor vehicles on a road </item>
+        <item>Failure to take precautions when discharging fuel into the tank</item>
+        <item>Unobstructed control of vehicle when driving </item>
+        <item>Using inappropriate signals when driving</item>
+        <item>Prohibit reversing a motor vehicle for a long distance on a road.</item>
+        <item>Improper use of warning instruments </item>
+        <item>Excessive emission of smoke</item>
+        <item>Violation of regulations </item>
+        <item>Restriction on the number of persons in front seats of motor cars</item>
+        <item>Non-use of seat belts </item>
+        <item>Failure to wear protective helmets when driving </item>
+        <item>Prohibition to distribute advertisements from a vehicle in motion</item>
+        <item>Prohibit excessive use of noise from a vehicle </item>
+        <item>Non-compliance with traffic signs </item>
+        <item>Non-compliance with Speed limits provisions </item>
+        <item>Failure to obey directions and signals of police officers</item>
+        <item>Failure to comply with road rules </item>
+        <item>Precautions to be taken when motor vehicle is halted or left unattended or disabled on a road</item>
+        <item>Instructing without an instructor’s Licence </item>
+        <item>Carriage of persons or passengers in excess of authorized number and of goods other than personal luggage in omnibuses</item>
+        <item>Carriage on lorry or motor tricycle van of goods in excess of maximum load or maximum axle load</item>
+        <item>Not to exceed the number of persons carried in a lorry </item>
+        <item>Carriage of persons in excess of authorized number in private coaches and of goods other than personal luggage in motor cars or private coaches</item>
+        <item>Failure to carry the emission certificate or the fitness certificate in the vehicle</item>
+        <item>Prohibit riding or permitting to ride on running boards</item>
+    </string-array>
+
 </resources>
