@@ -23,20 +23,10 @@
             android:orientation="horizontal">
 
             <ImageView
-                android:layout_width="100dp"
+                android:layout_width="248dp"
                 android:layout_height="100dp"
                 android:padding="10dp"
-                android:src="@drawable/e"/>
-
-            <TextView
-                android:id="@+id/textView6"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:text="Hello"
-                android:textColor="@color/teal_700"
-                android:textSize="18sp"
-                android:textStyle="bold"/>
+                android:src="@drawable/logo" />
 
         </LinearLayout>
 
