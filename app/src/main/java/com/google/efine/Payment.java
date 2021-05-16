@@ -81,14 +81,15 @@ public class Payment extends AppCompatActivity {
                     SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
                     String strDate = formatter.format(date);
                     int type= Integer.parseInt(result.getString("type"));
+                    Double py=paymentCalc(result.getString("type"));
                     String[] TypeArray = getResources().getStringArray(R.array.TypeArray);
-                    tv.setText(" <-| "+TypeArray[type]+" | "+strDate+" |->");
+                    tv.setText(""+py+" has to pay for "+TypeArray[type]+" at "+strDate);
                     LL.addView(tv);
 
                     tv.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
-                            update(result.getObjectId("_id"));
+                            update(result.getObjectId("_id"),result.getString("type"),result.getString("description"),result.getString("licence"),result.getString("police"),result.getDouble("latitude"),result.getDouble("longitude"),result.getDate("date"));
                             pay(result.getString("type"),result.getString("licence"));
                         }
                     });
@@ -106,7 +107,7 @@ public class Payment extends AppCompatActivity {
         Document reportDoc  = new Document("_id", new ObjectId()).append("type", violationType).append("licence", licence).append("date", new Date()).append("payment", py);
         mongoCollection.insertOne(reportDoc).getAsync(task -> {
             if (task.isSuccess()) {
-                Toast.makeText(getApplicationContext(),"Reported Successfully",Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(),"Paid Successfully",Toast.LENGTH_LONG).show();
                 Log.v("SRA", "successfully inserted a document with id: " + task.get().getInsertedId());
                 Intent intent = getIntent();
                 finish();
@@ -119,9 +120,9 @@ public class Payment extends AppCompatActivity {
 
     }
 
-    public void update(ObjectId id){
+    public void update(ObjectId id,String violationType,String dis,String licence,String emailAd,double latitude,double longitude,Date date){
         Document queryFilter = new Document("_id",id);
-        Document updateDocument = new Document("paid", true);
+        Document updateDocument = new Document("paid", true).append("type", violationType).append("description", dis).append("licence", licence).append("police", emailAd).append("latitude", latitude).append("longitude", longitude).append("date", date);
         mongoCollection.updateOne(queryFilter, updateDocument).getAsync(task -> {
             if (task.isSuccess()) {
                 long count = task.get().getModifiedCount();

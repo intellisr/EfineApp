@@ -76,9 +76,10 @@ public class History extends AppCompatActivity {
                     Date date =result.getDate("date");
                     SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
                     String strDate = formatter.format(date);
+                    Double py=paymentCalc(result.getString("type"));
                     int type= Integer.parseInt(result.getString("type"));
                     String[] TypeArray = getResources().getStringArray(R.array.TypeArray);
-                    tv.setText(" <-| "+TypeArray[type]+" | "+strDate+" |->");
+                    tv.setText(""+py+" paid for "+TypeArray[type]+" at "+strDate);
                     LL.addView(tv);
                 }
             } else {
@@ -87,5 +88,20 @@ public class History extends AppCompatActivity {
         });
 
 
+    }
+
+    public Double paymentCalc(String type){
+        int id = Integer.parseInt(type);
+        Double value;
+        if(id < 24){
+            value=1000.0;
+        }else if(24 < id && id < 29){
+            value=2000.0;
+        }else if(id > 28 ){
+            value=500.0;
+        }else{
+            value=3000.0;
+        }
+        return value;
     }
 }
